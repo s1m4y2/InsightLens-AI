@@ -17,6 +17,7 @@ from app.core.request_logging_middleware import (RequestLoggingMiddleware)
 from app.core.cors import setup_cors
 from app.core.app_info import APP_METADATA
 from app.api.v1.system import router as system_router
+from app.api.v1.notifications import router as notifications_router
 
 setup_logging()
 
@@ -39,7 +40,7 @@ app.include_router(dashboard_router)
 app.include_router(statistics_router)
 app.include_router(auth_router)
 app.include_router(system_router)
-
+app.include_router(notifications_router)
 
 @app.get("/")
 def root():

@@ -1,10 +1,17 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
+
 from app.clients.client_factory import ClientFactory
 from app.loaders.prompt_loader import PromptLoader
 from app.utils.json_parser import parse_json
-from app.schemas.prompt import (PromptTestRequest, PromptCompareRequest, PromptCreateRequest)
-from fastapi import Depends
+
+from app.schemas.prompt import (
+    PromptTestRequest,
+    PromptCompareRequest,
+    PromptCreateRequest
+)
+
 from app.security.roles import require_role
+from app.services.notification_service import NotificationService
 
 
 router = APIRouter(
@@ -14,6 +21,7 @@ router = APIRouter(
 
 client = ClientFactory.create()
 loader = PromptLoader()
+notification_service = NotificationService()
 
 @router.post("/test")
 def test_prompt(request: PromptTestRequest):
@@ -109,19 +117,61 @@ def get_prompt(
     }
 
 @router.delete("/{module}/{version}")
-def delete_prompt(module: str, version: str):
+def delete_prompt(
+    module: str,
+    version: str,
+    user=Depends(require_role("ADMIN"))
+):
 
-    loader.delete(module, version)
+    loader.delete(
+        module,
+        version
+    )
 
-    return {"message":"Deleted."}
+    notification_service.create(
+
+        user_id=user.id,
+
+        title="Prompt deleted",
+
+        description=(
+            f"{module} "
+            f"{version} deleted successfully."
+        ),
+
+        type="prompt"
+
+    )
+
+    return {
+        "message": "Deleted."
+    }
 
 @router.post("")
-def create_prompt(request: PromptCreateRequest):
+def create_prompt(
+    request: PromptCreateRequest,
+    user=Depends(require_role("ADMIN"))
+):
 
     loader.save(
         request.module,
         request.version,
         request.content
+    )
+
+    notification_service.create(
+
+        user_id=user.id,
+
+        title="Prompt created",
+
+        description=(
+            f"{request.module} "
+            f"{request.version} created successfully."
+        ),
+
+        type="prompt"
+
     )
 
     return {
@@ -131,13 +181,29 @@ def create_prompt(request: PromptCreateRequest):
 
 @router.put("")
 def update_prompt(
-    request: PromptCreateRequest
+    request: PromptCreateRequest,
+    user=Depends(require_role("ADMIN"))
 ):
 
     loader.save(
         request.module,
         request.version,
         request.content
+    )
+
+    notification_service.create(
+
+        user_id=user.id,
+
+        title="Prompt updated",
+
+        description=(
+            f"{request.module} "
+            f"{request.version} updated successfully."
+        ),
+
+        type="prompt"
+
     )
 
     return {
