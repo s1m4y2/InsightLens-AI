@@ -18,6 +18,23 @@ class NotificationRepository:
 
             db.refresh(entity)
 
+            notifications = db.scalars(
+                select(NotificationEntity)
+                .where(
+                    NotificationEntity.user_id == entity.user_id
+                )
+                .order_by(
+                    NotificationEntity.id.desc()
+                )
+            ).all()
+
+            old_notifications = notifications[6:]
+
+            for notification in old_notifications:
+                db.delete(notification)
+
+            db.commit()
+
             return entity
 
         finally:

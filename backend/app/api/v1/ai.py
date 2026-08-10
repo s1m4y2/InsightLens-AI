@@ -101,16 +101,4 @@ def business_insights(
         formatted
     )
 
-    notification_service.create(
-
-        user_id=user.id,
-
-        title="Business insights generated",
-
-        description="AI business insights generated successfully.",
-
-        type="ai"
-
-    )
-
     return result

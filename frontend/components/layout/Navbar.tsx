@@ -107,7 +107,7 @@ export default function Navbar() {
                     await getNotifications();
 
                 setNotifications(
-                    data.items
+                    data.items.slice(0, 6)
                 );
 
                 setUnreadCount(
@@ -125,7 +125,21 @@ export default function Navbar() {
 
         }
 
+
         loadNotifications();
+
+
+        const interval = setInterval(
+            loadNotifications,
+            5000
+        );
+
+
+        return () => {
+
+            clearInterval(interval);
+
+        };
 
     }, []);
 
@@ -816,7 +830,7 @@ export default function Navbar() {
 
                             <div className="max-h-[420px] overflow-y-auto">
 
-                                {notifications.map(
+                                {notifications.slice(0, 6).map(
                                     (item) => {
 
                                         const Icon =

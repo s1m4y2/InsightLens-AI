@@ -1,381 +1,365 @@
-<p align="center">
-  <img src="docs/images/banner.png" alt="InsightLens AI Banner">
-</p>
+<div align="center">
 
-# 🎥 Demo
+# 🔍 InsightLens AI
 
-<p align="center">
+**AI-powered customer review analytics platform built with FastAPI, Next.js, PostgreSQL, Docker and Google Gemini.**
 
-<img src="docs/images/swagger.png" width="48%">
+InsightLens AI transforms unstructured customer feedback into structured, actionable business intelligence — combining LLM-powered review analysis, analytics, prompt versioning, AI execution logging, notifications and report generation in a single full-stack application.
 
-<img src="docs/images/dashboard.png" width="48%">
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Gemini](https://img.shields.io/badge/AI-Google%20Gemini-4285F4?logo=googlegemini&logoColor=white)
 
-</p>
-
-<p align="center">
-
-<img src="docs/images/business-insights.png" width="85%">
-
-</p>
+</div>
 
 ---
 
+## 📋 Table of Contents
 
-# 🚀 InsightLens AI
-
-![Python](https://img.shields.io/badge/Python-3.12-blue?logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.116-green?logo=fastapi)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue?logo=postgresql)
-![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
-![Gemini](https://img.shields.io/badge/Google-Gemini-orange?logo=google)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-red)
-![JWT](https://img.shields.io/badge/Auth-JWT-black)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-> An AI-powered backend platform for intelligent customer review analysis using FastAPI, Google Gemini, PostgreSQL and Docker.
-
-> It automatically analyzes customer feedback, generates business insights, manages prompt versions and exposes production-ready REST APIs.
+- [Demo](#-demo)
+- [What InsightLens AI Does](#-what-insightlens-ai-does)
+- [Key Features](#-key-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Authentication & Authorization](#-authentication--authorization)
+- [API Modules](#-api-modules)
+- [Example AI Response](#-example-ai-response)
+- [Getting Started](#-getting-started)
+- [Example Workflow](#-example-workflow)
+- [Engineering Highlights](#-engineering-highlights)
+- [Roadmap](#️-roadmap)
+- [Author](#-author)
+- [License](#-license)
 
 ---
 
-# 📌 Overview
+## 🎥 Demo
 
-InsightLens AI is a production-ready AI-powered backend platform designed to analyze customer reviews using Large Language Models (LLMs).
+> 🎬 **A full walkthrough video is coming soon** — it will demonstrate the complete application flow: analyzing customer feedback, storing AI results, visualizing analytics, generating business insights, managing prompts, monitoring AI executions and exporting reports. This section will be updated with the YouTube link once it's published.
 
-The system automatically processes customer feedback, extracts meaningful insights, stores structured analysis results, and exposes them through REST APIs for dashboards, analytics, reporting, and business intelligence.
+### Dashboard
 
-Core capabilities include:
+![InsightLens AI Dashboard](docs/images/dashboard-overview.png)
 
-- AI-powered review analysis
-- Automatic summarization
-- Sentiment detection
-- Emotion extraction
-- Category classification
-- Keyword extraction
+The dashboard provides a real-time overview of customer feedback with sentiment, category, emotion, review trends, recent reviews and AI-generated business insights.
+
+---
+
+## ✨ What InsightLens AI Does
+
+A customer review can enter the system as plain text and be transformed into structured intelligence:
+
+```text
+Customer Review
+      │
+      ▼
+AI Analysis
+      │
+      ├── Summary
+      ├── Sentiment
+      ├── Emotion
+      ├── Categories
+      ├── Keywords
+      └── Suggested Reply
+      │
+      ▼
+PostgreSQL
+      │
+      ├── Analytics
+      ├── Dashboard
+      ├── Business Insights
+      ├── AI Logs
+      └── Reports
+```
+
+> **Turn customer feedback into decisions, not just data.**
+
+---
+
+# 🚀 Key Features
+
+## 🤖 AI-Powered Review Analysis
+
+Google Gemini analyzes customer reviews and extracts:
+
+- Summary
+- Sentiment
+- Emotion
+- Product categories
+- Keywords
+- AI confidence
+- Suggested customer reply
+
+### AI Analysis
+
+![AI Analyze](docs/images/ai-analyze.png)
+
+### AI Analysis Result
+
+![AI Analysis Result](docs/images/ai-analysis-result.png)
+
+---
+
+## 📊 Analytics Dashboard
+
+The dashboard aggregates analyzed reviews into business-facing metrics.
+
+- Total reviews
+- Positive / Negative / Mixed sentiment
+- Top categories
+- Top emotions
+- Review trends
+- Recent AI-analyzed reviews
+- AI-generated business insights
+
+
+### AI Business Insights
+
+Google Gemini converts collected analytics into an executive-level report containing:
+
+- Executive Summary
+- Strengths
+- Issues
+- Recommendations
+
+![AI Business Insights](docs/images/business-insights.png)
+
+---
+
+## 💬 Review Management
+
+Reviews can be searched, filtered and inspected through a dedicated review management interface.
+
+Supported operations include:
+
+- Search reviews
+- Filter by sentiment
+- Filter by emotion
+- Filter by category
+- View detailed AI analysis
+- Re-analyze reviews
+- Delete reviews
+- Export review data
+
+![Reviews](docs/images/reviews-list.png)
+
+### Review Details
+
+![Review Details](docs/images/review-details.png)
+
+---
+
+## 🧠 Prompt Management
+
+Prompt templates are treated as application-level resources instead of being hard-coded into business logic.
+
+The platform supports:
+
+- Prompt modules
+- Prompt versioning
+- Prompt creation
+- Prompt editing
+- Prompt deletion
+- Prompt testing
+- Prompt comparison
+- Dynamic prompt loading
+
+![Prompt Management](docs/images/prompt-management.png)
+
+This makes it possible to iterate on AI behavior without changing the core application code.
+
+---
+
+## 🧾 AI Execution Logs
+
+The AI Logs interface provides visibility into AI executions.
+
+Each log can contain:
+
+- Module
+- Prompt version
+- Provider
+- Execution time
+- Created timestamp
+- Prompt
+- AI response
+
+![AI Logs](docs/images/ai-logs.png)
+
+---
+
+## 📑 Reporting
+
+InsightLens AI supports exporting customer review data into:
+
+- PDF
+- Excel
+- CSV
+
+![Reports](docs/images/reports.png)
+
+---
+
+## 🔔 Notifications
+
+The platform provides in-app notifications for important actions such as:
+
+- AI analysis completion
 - Business insight generation
-- Prompt version management
-- Analytics dashboards
-- AI execution logging
-- Report generation
+- Prompt creation / update / deletion
+- Report exports
 
-The project follows a layered architecture with clean separation of concerns and demonstrates modern backend engineering practices using FastAPI, PostgreSQL, Docker, SQLAlchemy, JWT Authentication and Google Gemini.
+Notifications are limited to the latest entries so the notification panel remains compact.
 
 ---
 
-# ✨ Features
+# 🏗 Architecture
 
-| Category           | Features                                                               |
-|--------------------|------------------------------------------------------------------------|
-| Authentication     | JWT Authentication, Role-Based Authorization                           |
-| AI                 | Review Analysis, Summarization, Sentiment Detection, Business Insights |
-| Prompt Engineering | Prompt CRUD, Prompt Testing, Prompt Comparison, Prompt Versioning      |
-| Analytics          | Dashboard, Statistics, AI Logs                                         |
-| Reporting          | CSV Export                                                             |
-| Infrastructure     | Docker, PostgreSQL, Alembic                                            |
+InsightLens AI follows a layered backend architecture with clear separation between API, business logic, AI providers, repositories and persistence.
+
+```text
+┌──────────────────────────────────────────────┐
+│                  Next.js                     │
+│            Frontend / Dashboard              │
+└──────────────────────┬───────────────────────┘
+                       │ REST API
+                       ▼
+┌──────────────────────────────────────────────┐
+│                   FastAPI                    │
+│              API / Authentication            │
+└──────────────────────┬───────────────────────┘
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+     Services       AI Layer    Repositories
+          │            │            │
+          │       Google Gemini     │
+          │            │            │
+          └────────────┼────────────┘
+                       ▼
+                  PostgreSQL
+```
 
 ---
 
 # 🛠 Tech Stack
 
-| Layer             | Technology      |
-|-------------------|-----------------|
-| Backend           | FastAPI         |
-| ORM               | SQLAlchemy      |
-| Validation        | Pydantic        |
-| Database          | PostgreSQL      |
-| AI                | Google Gemini   |
-| Authentication    | JWT             |
-| Password Hashing  | bcrypt          |
-| Migration         | Alembic         |
-| Containerization  | Docker          |
-| API Documentation | Swagger UI      |
-
----
-
-# 🏗 Project Architecture
-
-<p align="center">
-
-<img src="docs/images/architecture.png" width="1000">
-
-</p>
-
-The application follows a layered architecture where every request passes through authentication, service, AI, repository and persistence layers.
-
-Prompt templates are loaded dynamically, executed by Google Gemini, validated, mapped into entities and stored in PostgreSQL before being exposed through analytics and reporting APIs.
+| Layer | Technology |
+|---|---|
+| Frontend | Next.js, React, TypeScript |
+| Styling | Tailwind CSS |
+| Backend | FastAPI, Python |
+| ORM | SQLAlchemy |
+| Validation | Pydantic |
+| Database | PostgreSQL |
+| AI / LLM | Google Gemini |
+| Authentication | JWT |
+| Authorization | Role-Based Access Control |
+| Password Hashing | bcrypt |
+| Migrations | Alembic |
+| HTTP Client | Axios |
+| Containerization | Docker / Docker Compose |
+| API Documentation | Swagger / OpenAPI |
 
 ---
 
 # 📂 Project Structure
 
 ```text
-InsightLens-AI
+InsightLens-AI/
 │
-├── backend
-│   ├── app
-│   │   ├── ai
-│   │   ├── api
-│   │   ├── clients
-│   │   ├── core
-│   │   ├── entities
-│   │   ├── loaders
-│   │   ├── mappers
-│   │   ├── middleware
-│   │   ├── models
-│   │   ├── prompts
-│   │   ├── repositories
-│   │   ├── reports
-│   │   ├── schemas
-│   │   ├── security
-│   │   ├── services
-│   │   └── utils
+├── backend/
+│   ├── app/
+│   │   ├── ai/
+│   │   ├── api/
+│   │   ├── clients/
+│   │   ├── core/
+│   │   ├── entities/
+│   │   ├── loaders/
+│   │   ├── mappers/
+│   │   ├── middleware/
+│   │   ├── prompts/
+│   │   ├── repositories/
+│   │   ├── reports/
+│   │   ├── schemas/
+│   │   ├── security/
+│   │   ├── services/
+│   │   └── utils/
 │   │
-│   ├── migrations
+│   ├── alembic/
 │   ├── Dockerfile
 │   ├── docker-compose.yml
-│   ├── requirements.txt
-│   └── README.md
+│   └── requirements.txt
 │
-└── docs
-    └── images
+├── frontend/
+│   ├── app/
+│   ├── components/
+│   ├── hooks/
+│   ├── services/
+│   └── ...
+│
+├── docs/
+│   └── images/
+│
+├── .gitignore
+└── README.md
 ```
 
 ---
 
-# 🤖 AI Processing Pipeline
+# 🔐 Authentication & Authorization
+
+The application uses JWT-based authentication.
 
 ```text
-Customer Review
-
-        │
-
-        ▼
-
-Authentication
-
-        │
-
-        ▼
-
-Review Service
-
-        │
-
-        ▼
-
-Prompt Loader
-
-        │
-
-        ▼
-
-Google Gemini API
-
-        │
-
-        ▼
-
-JSON Validation
-
-        │
-
-        ▼
-
-Entity Mapping
-
-        │
-
-        ▼
-
-PostgreSQL Database
-
-        │
-
-        ▼
-
-Dashboard
-│
-├── Statistics
-├── Reports
-└── Business Insights
-```
-
----
-
-# 🔑 Authentication Flow
-
-```
 Register
-
-↓
-
+   │
+   ▼
 Login
-
-↓
-
-JWT Token
-
-↓
-
-Protected Endpoints
-
-↓
-
-Business Logic
-
-↓
-
-Database
+   │
+   ▼
+JWT Access Token
+   │
+   ▼
+Protected API
+   │
+   ▼
+Role-Based Authorization
 ```
 
----
+Supported roles:
 
-# 📊 Dashboard
+- `USER`
+- `ADMIN`
 
-The Dashboard module provides a real-time overview of analyzed customer reviews.
-
-It aggregates AI-generated review data and exposes REST endpoints for monitoring customer satisfaction trends.
-
-Available metrics include:
-
-- Total Reviews
-- Positive Reviews
-- Negative Reviews
-- Mixed Reviews
-- Top Emotions
-- Top Categories
-- Recent Reviews
+Administrative operations such as prompt management and report exports are protected with role-based authorization.
 
 ---
 
-# 📈 Statistics
+# 🧩 API Modules
 
-The statistics endpoint calculates:
+| Module | Base Endpoint | Purpose |
+|---|---|---|
+| Authentication | `/api/v1/auth` | Registration, login, current user |
+| Reviews | `/api/v1/reviews` | Review analysis and management |
+| Dashboard | `/api/v1/dashboard` | Dashboard metrics |
+| Statistics | `/api/v1/statistics` | Review statistics |
+| AI | `/api/v1/ai` | Summarization, sentiment, business insights |
+| Prompt | `/api/v1/prompt` | Prompt CRUD, testing and versioning |
+| Notifications | `/api/v1/notifications` | User notifications |
+| AI Logs | `/api/v1/ai/logs` | AI execution monitoring |
+| Reports | `/api/v1/reports` | PDF, Excel and CSV exports |
 
-- Total Reviews
-- Positive Percentage
-- Negative Percentage
-- Mixed Percentage
-- Average Review Length
-
----
-
-# 💬 Prompt Management
-
-Prompt management system supports
-
-- Prompt Versioning
-
-- Prompt Testing
-
-- Prompt Comparison
-
-- Prompt CRUD
-
-without changing application code.
+Full interactive API documentation is available via Swagger once the backend is running (see [Getting Started](#-getting-started)).
 
 ---
 
-# 🤖 Business Insights
-
-Business Insights analyzes all collected reviews and generates
-
-- Executive Summary
-
-- Strengths
-
-- Issues
-
-- Recommendations
-
-using Google Gemini.
-
----
-
-# 🔐 Authentication
-
-Authentication uses
-
-- JWT Access Tokens
-
-- HTTP Bearer Authentication
-
-- Role Based Authorization
-
-Roles
-
-- USER
-- ADMIN
-
----
-
-# 🚀 Installation
-
-## Clone Repository
-
-```bash
-git clone https://github.com/<your-username>/InsightLens-AI.git
-
-cd InsightLens-AI/backend
-```
-
-## Configure Environment
-
-Create a `.env` file.
-
-```env
-DATABASE_URL=
-
-JWT_SECRET_KEY=
-
-JWT_ALGORITHM=HS256
-
-ACCESS_TOKEN_EXPIRE_MINUTES=60
-
-GEMINI_API_KEY=
-
-MODEL_NAME=gemini-3-flash-preview
-```
-
-## Build Containers
-
-```bash
-docker compose up --build
-```
-
-## Run Database Migrations
-
-```bash
-docker exec -it insightlens-api sh
-
-alembic upgrade head
-```
-
-## Open API Documentation
-
-```
-http://127.0.0.1:8000/docs
-```
-
----
-
-
-# 📡 API Modules
-
-| Module | Endpoint | Description |
-|---------|----------|-------------|
-| Authentication | `/api/v1/auth` | Register, Login, Current User |
-| Reviews | `/api/v1/reviews` | Analyze, List, Detail |
-| Dashboard | `/api/v1/dashboard` | Dashboard Metrics |
-| Statistics | `/api/v1/statistics` | Review Statistics |
-| AI | `/api/v1/ai` | Summarization, Sentiment, Business Insights |
-| Prompt | `/api/v1/prompt` | Prompt CRUD & Versioning |
-
----
-
-# 📄 Example Response
-
-Example response returned by the Review Analysis endpoint.
+# 📄 Example AI Response
 
 ```json
 {
@@ -395,76 +379,182 @@ Example response returned by the Review Analysis endpoint.
 
 ---
 
-# 🚀 Roadmap
+# ⚡ Getting Started
 
-- Frontend Dashboard (React)
-- Redis Cache
-- Background Tasks (Celery)
-- Retrieval-Augmented Generation (RAG)
-- Vector Database Integration
-- Multi-LLM Support
-- Kubernetes Deployment
-- CI/CD Pipeline
-- Automated Testing
-- Prompt Performance Metrics
-- AI Evaluation Module
+## Prerequisites
+
+- [Docker](https://www.docker.com/) & Docker Compose
+- [Node.js](https://nodejs.org/) 18+ (for running the frontend locally)
+- [Python](https://www.python.org/) 3.11+ (only needed if running the backend outside Docker)
+- A [Google Gemini API key](https://ai.google.dev/)
+
+## 1. Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/InsightLens-AI.git
+cd InsightLens-AI
+```
+
+## 2. Configure backend environment variables
+
+Create a `.env` file inside `backend/`:
+
+```env
+DATABASE_URL=your_postgresql_connection_string
+
+JWT_SECRET_KEY=your_secret_key
+JWT_ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=60
+
+GEMINI_API_KEY=your_gemini_api_key
+MODEL_NAME=gemini-3-flash-preview
+```
+
+> ⚠️ Never commit real API keys, passwords or production credentials.
+>
+> Generate a strong `JWT_SECRET_KEY` with:
+> ```bash
+> openssl rand -hex 32
+> ```
+
+## 3. Configure frontend environment variables
+
+Create a `.env.local` file inside `frontend/`:
+
+```env
+NEXT_PUBLIC_API_URL=http://127.0.0.1:8000
+```
+
+## 4. Start the backend with Docker
+
+```bash
+cd backend
+docker compose up --build
+```
+
+## 5. Run database migrations
+
+With the containers running, apply migrations inside the backend container:
+
+```bash
+docker compose exec backend alembic upgrade head
+```
+
+## 6. Start the frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+## 7. Open the application
+
+| Service | URL |
+|---|---|
+| Frontend (Dashboard) | http://localhost:3000 |
+| Backend API docs (Swagger) | http://127.0.0.1:8000/docs |
 
 ---
 
-# 💡 Highlights
+# 🧪 Example Workflow
 
-✔ Production-Ready REST API
-
-✔ Layered Architecture
-
-✔ Repository Pattern
-
-✔ Prompt Engineering
-
-✔ Prompt Versioning
-
-✔ Google Gemini Integration
-
-✔ JWT Authentication
-
-✔ Dockerized Deployment
-
-✔ Dashboard Analytics
-
-✔ Business Intelligence
-
-✔ AI Execution Logging
-
-✔ Report Generation
+```text
+1. Login
+   ↓
+2. Submit customer review
+   ↓
+3. Gemini analyzes the review
+   ↓
+4. Structured AI result is returned
+   ↓
+5. Result is saved to PostgreSQL
+   ↓
+6. Dashboard statistics are updated
+   ↓
+7. AI execution is recorded in AI Logs
+   ↓
+8. Business Insights aggregates collected data
+   ↓
+9. Reports can be exported as PDF / Excel / CSV
+```
 
 ---
 
-# 👨‍💻 Author
+# 📌 Engineering Highlights
+
+### Backend Engineering
+
+- Layered architecture
+- Repository pattern
+- Service layer
+- FastAPI dependency injection
+- SQLAlchemy ORM
+- PostgreSQL persistence
+- Alembic migrations
+- JWT authentication
+- Role-based authorization
+- REST API design
+
+### AI Engineering
+
+- Google Gemini integration
+- Structured AI responses
+- Prompt templates
+- Prompt versioning
+- Prompt testing
+- Prompt comparison
+- AI execution logging
+- Business insight generation
+
+### Product Features
+
+- Interactive analytics dashboard
+- Review management
+- AI analysis interface
+- Notification system
+- Reporting and exports
+- AI monitoring interface
+
+> **Note on testing:** this project does not yet have an automated test suite — it's tracked in the roadmap below. All flows shown in the demo video are manually verified.
+
+---
+
+# 🗺️ Roadmap
+
+Potential future improvements:
+
+- [ ] Redis caching
+- [ ] Background AI processing
+- [ ] RAG / knowledge-base integration
+- [ ] Vector database integration
+- [ ] Multi-LLM provider support
+- [ ] Kubernetes deployment
+- [ ] CI/CD pipeline
+- [ ] Automated test coverage
+- [ ] Prompt performance evaluation
+- [ ] AI quality evaluation dashboard
+
+---
+
+# 👩‍💻 Author
 
 **Simay Ayanoğlu**
 
-Backend Developer
+Backend Developer · AI & LLM Applications
 
-AI & LLM Applications
+Built with ❤️ using **FastAPI, Next.js, PostgreSQL and Google Gemini.**
 
 ---
 
-# ⭐ If you like this project, don't forget to give it a star.
+## ⭐ If you find this project useful
 
-![GitHub stars](https://img.shields.io/github/stars/<s1m4y2>/InsightLens-AI?style=for-the-badge)
+Consider giving the repository a ⭐.
 
-![GitHub last commit](https://img.shields.io/github/last-commit/<s1m4y2>/InsightLens-AI?style=for-the-badge)
-
-![GitHub repo size](https://img.shields.io/github/repo-size/<s1m4y2>/InsightLens-AI?style=for-the-badge)
-
-![GitHub issues](https://img.shields.io/github/issues/<s1m4y2>/InsightLens-AI?style=for-the-badge)
+This is a personal / portfolio project built to demonstrate full-stack and AI engineering skills. Feedback and suggestions are always welcome via Issues.
 
 # 📜 License
 
 This project is licensed under the MIT License.
 
-See the LICENSE file for more information.
-
----
-
-Made with ❤️ using FastAPI, Google Gemini and PostgreSQL.
+See the [`LICENSE`](LICENSE) file for more information.
